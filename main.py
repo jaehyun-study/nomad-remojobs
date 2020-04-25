@@ -13,6 +13,7 @@ from ro import get_jobs as ro_jobs
 from so import get_jobs as so_jobs
 from wwr import get_jobs as wwr_jobs
 
+db = {}
 app = Flask('RemoteJobs')
 
 
@@ -26,9 +27,15 @@ def search():
     term = request.args.get('term')
     if not term: return redirect('/')
     term = term.lower()
-    jobs = so_jobs(term) + wwr_jobs(term) + ro_jobs(term)
+    if term not in db:
+        db[term] = so_jobs(term) + wwr_jobs(term) + ro_jobs(term)
+    jobs = db[term]
     return render_template(
         'search.html', term=term, job_count=len(jobs), jobs=jobs)
 
 
+print()
 app.run(host='0.0.0.0')
+
+# todo term history
+# job save
