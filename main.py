@@ -7,3 +7,15 @@ https://remoteok.io/remote-dev+python-jobs
 
 Good luck!
 """
+
+from flask import Flask, render_template
+
+app = Flask('RemoteJobs')
+
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+
+app.run(host='0.0.0.0')
