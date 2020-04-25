@@ -43,15 +43,18 @@ def extract_job(job_soup):
 
 def extract_jobs(term, last_page):
     jobs = []
-    for page_num in range(0, last_page):
-        print(f'extract_jobs page {page_num+1}/{last_page}')
-        html = get_html(term, page_num)
-        soup = BeautifulSoup(html, 'html.parser')
-        job_list_soup = soup.find_all('div', class_='-job')
-        for job_soup in job_list_soup:
-            job = extract_job(job_soup)
-            if job is None: continue
-            jobs.append(job)
+    try:
+        for page_num in range(0, last_page):
+            print(f'extract_jobs page {page_num+1}/{last_page}')
+            html = get_html(term, page_num)
+            soup = BeautifulSoup(html, 'html.parser')
+            job_list_soup = soup.find_all('div', class_='-job')
+            for job_soup in job_list_soup:
+                job = extract_job(job_soup)
+                if job is None: continue
+                jobs.append(job)
+    except:
+        pass
     return jobs
 
 

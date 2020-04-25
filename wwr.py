@@ -32,14 +32,17 @@ def extract_job(job_soup):
 
 def extract_jobs(term):
     jobs = []
-    html = get_html(term)
-    soup = BeautifulSoup(html, 'html.parser')
-    jobs_container = soup.find('div', class_='jobs-container')
-    job_list_soup = jobs_container.find_all('li')
-    for job_soup in job_list_soup:
-        job = extract_job(job_soup)
-        if job is None: continue
-        jobs.append(job)
+    try:
+        html = get_html(term)
+        soup = BeautifulSoup(html, 'html.parser')
+        jobs_container = soup.find('div', class_='jobs-container')
+        job_list_soup = jobs_container.find_all('li')
+        for job_soup in job_list_soup:
+            job = extract_job(job_soup)
+            if job is None: continue
+            jobs.append(job)
+    except:
+        pass
     return jobs
 
 

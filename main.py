@@ -44,5 +44,6 @@ def export():
 
 app.run(host='0.0.0.0')
 
+# scraping progress page
 # todo term history
 # job save
