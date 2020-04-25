@@ -17,14 +17,14 @@
 		<h6><a href="/">&larr; Go back</a></h6>
 	</header>
 	<main>
-		<!-- loop -->
+		{% for job in jobs %}
 		<div>
-			<h3>Title</h3>
-			<h4>Company</h4>
-			<a href="https://stackoverflow.com/jobs/xxxxxx/" target="_blank">Apply</a>
+			<h3>{{job.title}}</h3>
+			<h4>{{job.company}}</h4>
+			<a href="{{job.url}}" target="_blank">Apply</a>
 		</div>
 		<hr />
-		<!-- loop -->
+		{% endfor %}
 	</main>
 </body>
 
