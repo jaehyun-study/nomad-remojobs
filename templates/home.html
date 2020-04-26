@@ -10,18 +10,15 @@
 </head>
 
 <body>
-	<header>
-        <a href="/">
-		    <h1 class="logo">remote jobs</h1>
-        </a>
-        <div class="search">
-            <form action="/search">
-                <input id="search-input" placeholder="i.e python" name="term" value="{{term}}" required autofocus/>
-            </form>
-        </div>
-	</header>
+{% include 'header.html' %}
 	<main>
+        <section class="terms">
+            {% for term in terms %}
+            <a href="/search?term={{term}}"><i>{{term}}</i></a>
+            {% endfor %}
+        </section>
     </main>
+{% include 'footer.html' %}
     <script type="text/javascript" src={{url_for('static', filename='global.js')}}>
     </script>
 </body>

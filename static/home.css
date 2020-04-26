@@ -1,0 +1,7 @@
+.terms {
+    display: flex;
+}
+
+.terms > a {
+    margin: 8px;
+}

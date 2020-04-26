@@ -1,0 +1,64 @@
+.toolbar {
+  max-width: var(--width-content);
+  margin: auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar__column:nth-child(1) {
+  margin-left: 12px;
+}
+
+.job-container {
+  max-width: var(--width-content);
+  margin: auto;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.job {
+  border-top: 1px solid var(--color-bg-secondary);
+  padding: 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.job__column {
+  padding: 0px 8px;
+}
+
+.job__column:nth-child(2) {
+  width: 100%;
+}
+
+.job__column .company {
+  margin: 4px;
+  color: var(--color-text-secondary);
+}
+
+.job__column .title {
+  margin: 4px;
+}
+
+.job__logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job__logo.text {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-size: x-large;
+}

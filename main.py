@@ -13,14 +13,23 @@ from ro import get_jobs as ro_jobs
 from so import get_jobs as so_jobs
 from wwr import get_jobs as wwr_jobs
 from writer import save_as_csv
+import random
 
 db = {}
 app = Flask('RemoteJobs')
+terms = [
+    'python', 'ruby', 'aws', 'django', 'go', 'docker', 'kubernetes',
+    'frontend', 'backend', 'react', 'git', 'sql', 'nosql', 'c++', 'c',
+    'tensorflow', 'linux', 'windows', 'scala', 'java', 'flask', 'database',
+    'node.js', 'agile', 'hadooop', 'swift', 'qt', 'mongodb', 'algorithm',
+    'embedded', 'cloud', 'kotlin'
+]
 
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    random.shuffle(terms)
+    return render_template('home.html', terms=terms)
 
 
 @app.route('/search')
