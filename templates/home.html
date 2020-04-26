@@ -11,18 +11,18 @@
 
 <body>
 	<header>
-		<h1>Remote Jobs</h1>
+        <a href="/">
+		    <h1 class="logo">remote jobs</h1>
+        </a>
+        <div class="search">
+            <form action="/search">
+                <input id="search-input" placeholder="i.e python" name="term" value="{{term}}" required autofocus/>
+            </form>
+        </div>
 	</header>
 	<main>
-		<div>
-			<form action="/search">
-				<h3>Search by term:</h3>
-				<input placeholder="i.e python" required name="term" />
-            <button type="submit" id="findButton">Find my job</button>
-        </form>
-        </div>
     </main>
-    <script type="text/javascript" src={{url_for('static', filename='home.js')}}>
+    <script type="text/javascript" src={{url_for('static', filename='global.js')}}>
     </script>
 </body>
 
