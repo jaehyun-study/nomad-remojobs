@@ -20,10 +20,14 @@ def extract_job(job_soup):
         title = job_soup.find('h2', {'itemprop': 'title'}).text
         company = job_soup.find('h3', {'itemprop': 'name'}).text
         link_id = job_soup['data-id']
+        logo = job_soup.find('td', {'class':'has-logo'})
+        if logo: logo = logo.find('img', {'class':'logo'})['src']
         return {
             'title': title,
             'company': company,
             'url': f'https://remoteok.io/remote-jobs/{link_id}',
+            'text_logo': company[0],
+            'logo_url': logo
         }
     except:
         return None

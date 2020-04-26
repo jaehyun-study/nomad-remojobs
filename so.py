@@ -32,10 +32,14 @@ def extract_job(job_soup):
         title = job_soup.find('h2').text.strip()
         company = job_soup.h3.span.text.strip()
         link_id = job_soup['data-jobid'].strip()
+        logo = job_soup.find('img')
+        if logo: logo = logo['src']
         return {
             'title': title,
             'company': company,
             'url': f'https://stackoverflow.com/jobs/{link_id}',
+            'text_logo': company[0],
+            'logo_url': logo
         }
     except:
         return None

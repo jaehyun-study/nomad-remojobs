@@ -4,6 +4,7 @@ weworkremotely
 
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 def get_html(term):
@@ -21,10 +22,16 @@ def extract_job(job_soup):
         title = anchor.find('span', class_='title').text
         company = anchor.find('span', class_='company').text
         link = anchor['href']
+        logo = job_soup.find('div', class_='flag-logo')
+        if logo:
+            url_pattern = "(?P<url>https?://[^\s]+)"
+            logo = re.search(url_pattern, logo['style']).group()
         return {
             'title': title,
             'company': company,
             'url': f'https://weworkremotely.com{link}',
+            'text_logo': company[0],
+            'logo_url': logo
         }
     except:
         return None
