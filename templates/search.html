@@ -15,7 +15,7 @@
 	<main>
         <section class="toolbar">
             <div class="toolbar__column">
-                <p>{{job_count}} remote <b>{{term}}</b> jobs found.</p>
+                <p class="search-result">{{job_count}} remote <b>{{term}}</b> jobs found.</p>
             </div>
             <div class="toolbar__column">
                 <a href="/export?term={{term}}"><b>Export to CSV</b></a>
@@ -41,6 +41,31 @@
 			</div>
 			{% endfor %}
 		</section>
+        {% if page.count > 1 %}
+            <section class="pagination">
+                <div class="pagination__column">
+                    <a href="/search?term={{term}}&page=1">
+                        <span>First</span>
+                    </a>
+                </div>
+                <div class="pagination__column">
+                {% for p in range(page.start, page.end) %}
+                {% if p == page.curr %}
+                    <span><b>{{p}}</b></span>
+                {% else %}
+                    <a href="/search?term={{term}}&page={{p}}">
+                        <span>{{p}}</span>
+                    </a>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <div class="pagination__column">
+                    <a href="/search?term={{term}}&page={{page.count}}">
+                        <span>Last</span>
+                    </a>
+                </div>
+            </section>
+        {% endif %}
 	</main>
 {% include 'footer.html' %}
     <script type="text/javascript" src={{url_for('static', filename='global.js')}}>

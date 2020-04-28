@@ -16,7 +16,6 @@ const terms = [
   "nosql",
   "c++",
   "c",
-  "tensorflow",
   "linux",
   "windows",
   "scala",
@@ -25,7 +24,7 @@ const terms = [
   "database",
   "node.js",
   "agile",
-  "hadooop",
+  "hadoop",
   "swift",
   "qt",
   "mongodb",
@@ -67,11 +66,9 @@ async function updatePlaceholder() {
 }
 
 if (form && input) {
-  console.log("ok");
   form.addEventListener("submit", (event) => {
     input.blur();
     input.readOnly = true;
-    console.log("fired");
   });
 }
 

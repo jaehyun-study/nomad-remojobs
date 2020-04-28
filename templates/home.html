@@ -14,7 +14,7 @@
 	<main>
         <section class="terms">
             {% for term in terms %}
-            <a href="/search?term={{term}}"><i>{{term}}</i></a>
+            <a href="/search?term={{term | urlencode}}"><i>{{term}}</i></a>
             {% endfor %}
         </section>
     </main>
