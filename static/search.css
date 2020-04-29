@@ -71,7 +71,7 @@
   border-top: 1px solid var(--color-bg-secondary);
   padding: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;    
 }
 
@@ -79,6 +79,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 4px;
 }
 
 .pagination__column:nth-child(2) {
